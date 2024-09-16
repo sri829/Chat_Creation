@@ -1,0 +1,7 @@
+pandas 
+google
+streamlit
+numpy
+PyPDf2
+flask
+streamlit_chat

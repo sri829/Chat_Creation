@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with PDF Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .chat-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+        }
+        .chat-box p {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .user {
+            background-color: #d1e7ff;
+            text-align: right;
+        }
+        .bot {
+            background-color: #e8e8e8;
+            text-align: left;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .clear-btn {
+            background-color: #dc3545;
+            color: white;
+            border-radius: 5px;
+        }
+        .clear-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Chat with PDF Bot</h1>
+        
+        <!-- Chat Box to Display Chat History -->
+        <div class="chat-box">
+            {% for entry in chat_history %}
+                {% if 'You' in entry.content %}
+                    <p class="user">{{ entry.content }}</p>
+                {% else %}
+                    <p class="bot">{{ entry.content }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Input Form for User Question -->
+        <form action="/chat" method="POST">
+            <input type="text" name="user_question" placeholder="Ask a question..." required>
+            <button type="submit">Send</button>
+        </form>
+
+        <!-- Clear Chat Button -->
+        <form action="/clear" method="POST" style="margin-top: 10px;">
+            <button type="submit" class="clear-btn">Clear Chat</button>
+        </form>
+    </div>
+
+</body>
+</html>
