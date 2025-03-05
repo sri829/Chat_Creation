@@ -3,7 +3,7 @@ from PyPDF2 import PdfReader
 import google.generativeai as genai
 
 # Configure the Generative AI API
-api_key = "Enter API KEY"
+api_key = "AIzaSyD2ZjDdPLTTo7Nw5H_H2PigMob3d0gpwoM"
 genai.configure(api_key=api_key)
 
 app = Flask(__name__)
