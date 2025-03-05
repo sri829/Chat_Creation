@@ -3,7 +3,7 @@ from PyPDF2 import PdfReader
 import google.generativeai as genai
 
 # Configure the Generative AI API
-api_key = "ENTER API KEY"  # Replace with your API key
+api_key = "AIzaSyD2ZjDdPLTTo7Nw5H_H2PigMob3d0gpwoM"  # Replace with your API key
 genai.configure(api_key=api_key)
 
 # Function to extract text from the uploaded PDF
